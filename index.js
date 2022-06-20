@@ -41,14 +41,8 @@ client.on('group_join', (notification) => {
     async function wait() {
         console.log('join', notification);
         await new Promise(resolve => setTimeout(resolve, 10000));
-      //  notification.reply(data.toString());
-
-        async function sendMedia(link, number, text) {
-            const mediaLink = await MessageMedia.fromUrl(link); // await MessageMedia.fromFilePath('./image.png');
-            client.sendMessage(number, mediaLink, { caption: text }).then(function (res) { }).catch(function (err) { });
-        }
-        sendMedia('https://external-preview.redd.it/zL6DH5hbvuS7XUigxXccktaUhOFxTE-pNvumVjH7Luc.png?width=640&crop=smart&auto=webp&s=7a6f11987e008b46be70cea37c5fd4a886754f4f',  notification.chatId, data.toString()).then(function () { });
-    
+        notification.reply(data.toString());
+        
     }
 });
 
