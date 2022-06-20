@@ -38,6 +38,7 @@ client.on('ready', () => {
 
 client.on('group_join', (notification) => {
     console.log('join', notification);
+    await new Promise(resolve => setTimeout(resolve, 10000));
     notification.reply(data.toString());
 });
 
