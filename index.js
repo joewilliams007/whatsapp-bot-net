@@ -5,7 +5,7 @@ var fs = require('fs');
 
 var data;
 try {  
-    data = fs.readFileSync('send.txt', 'utf8');   
+    data = fs.readFileSync('message.txt', 'utf8');   
 } catch(e) {
     console.log('Error:', e.stack);
 }
