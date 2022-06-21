@@ -45,7 +45,7 @@ client.on('group_join', (notification) => {
     async function wait() {
         console.log('join', notification);
         await new Promise(resolve => setTimeout(resolve, 10000));
-        notification.reply(data.toString());
+      //  notification.reply(data.toString());
 
         let chat = await notification.getChat()
         console.log(chat)
