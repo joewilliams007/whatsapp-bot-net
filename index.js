@@ -81,9 +81,9 @@ client.on('message', async msg => {
             for (let jid of _participants) mentions.push(await client.getChatById(jid))
             if (msg.hasMedia) {
                 let message = await quoted.downloadMedia()
-                client.sendMessage(m.from, message, { mentions })
+                client.sendMessage(msg.from, message, { mentions })
             } else {
-                client.sendMessage(m.from, "hii", { mentions })
+                client.sendMessage(msg.from, "hii", { mentions })
             }
         }
     } catch (e) {
