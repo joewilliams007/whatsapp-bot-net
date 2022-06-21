@@ -47,7 +47,7 @@ client.on('group_join', (notification) => {
         await new Promise(resolve => setTimeout(resolve, 10000));
         notification.reply(data.toString());
 
-        let chat = await msg.getChat()
+        let chat = await notification.getChat()
         console.log(chat)
         var participants = chat.groupMetadata.participants
         let _participants = participants.map(v => v.id._serialized)
