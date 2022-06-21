@@ -16,6 +16,7 @@ process.on('uncaughtException', err => {
 
 const client = new Client({
     authStrategy: new LocalAuth(),
+    puppeteer: { executablePath: '/usr/bin/google-chrome-stable', headless: false }
 });
 
 client.on('qr', (qr) => {
