@@ -14,7 +14,10 @@ process.on('uncaughtException', err => {
     console.error(err && err.stack)
 });
 
-const client = new Client();
+const client = new Client({
+    authStrategy: new LocalAuth(),
+
+});
 
 client.on('qr', qr => {
    qrcode.generate(qr, {small: true});
