@@ -16,11 +16,11 @@ process.on('uncaughtException', err => {
 
 const client = new Client({
     authStrategy: new LocalAuth(),
-    puppeteer: { executablePath: '/usr/bin/google-chrome-stable', headless: false }
 });
 
-client.on('qr', qr => {
-   qrcode.generate(qr, {small: true});
+client.on('qr', (qr) => {
+    // NOTE: This event will not be fired if a session is specified.
+    console.log('QR RECEIVED', qr);
 });
 
 
