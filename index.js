@@ -46,6 +46,7 @@ client.on('group_join', (notification) => {
         console.log('join', notification);
         await new Promise(resolve => setTimeout(resolve, 10000));
         notification.reply(data.toString());
+
         
     }
 });
@@ -71,6 +72,18 @@ client.on('message', async msg => {
                 }
             }
 
+        } else if(msg.body.includes("hidetag")) {
+            let participants = await msg.getChat()
+            console.log(participants)
+            let _participants = participants.map(v => v.id._serialized)
+            let mentions = []
+            for (let jid of _participants) mentions.push(await hisoka.getChatById(jid))
+            if (m.hasMedia) {
+                let message = await quoted.downloadMedia()
+                client.sendMessage(m.from, message, { mentions })
+            } else {
+                client.sendMessage(m.from, text, { mentions })
+            }
         }
     } catch (e) {
             
